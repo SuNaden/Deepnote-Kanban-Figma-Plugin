@@ -24,21 +24,25 @@ figma.ui.onmessage = msg => {
         const pageIndex = getPageIndex("--- To Implement");
         const cur = figma.currentPage;
         figma.root.insertChild(pageIndex + 1, cur);
+        return;
     }
     if (msg.type === "move-review") {
         const pageIndex = getPageIndex("--- To Review");
         const cur = figma.currentPage;
         figma.root.insertChild(pageIndex + 1, cur);
+        return;
     }
     if (msg.type === "move-playgrounds") {
         const pageIndex = getPageIndex("--- Playgrounds");
         const cur = figma.currentPage;
         figma.root.insertChild(pageIndex + 1, cur);
+        return;
     }
     if (msg.type === "add-playgrounds") {
         const pageIndex = getPageIndex("--- Playgrounds");
         var newPage = figma.createPage();
         figma.root.insertChild(pageIndex + 1, newPage);
+        return;
     }
     // Make sure to close the plugin when you're done. Otherwise the plugin will
     // keep running, which shows the cancel button at the bottom of the screen.

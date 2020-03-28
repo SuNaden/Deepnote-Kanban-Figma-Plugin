@@ -6,7 +6,7 @@ This is a simple plugin to move the currently selected page to the right place (
 
 **Example**
 
-![](example.png)
+![](example.gif)
 
 ## How to run this
 
