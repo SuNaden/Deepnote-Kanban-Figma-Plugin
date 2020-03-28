@@ -1,0 +1,7 @@
+{
+  "name": "Deepnote Kanban",
+  "id": "825806556922539332",
+  "api": "1.0.0",
+  "main": "code.js",
+  "ui": "ui.html"
+}
