@@ -1,19 +1,8 @@
-// This plugin will open a modal to prompt the user to enter a number, and
-// it will then create that many rectangles on the screen.
-
-// This file holds the main code for the plugins. It has access to the *document*.
-// You can access browser APIs in the <script> tag inside "ui.html" which has a
-// full browser enviroment (see documentation).
-
-// This shows the HTML page in "ui.html".
 figma.showUI(__html__);
 
 figma.ui.resize(280, 245);
 
-// Calls to "parent.postMessage" from within the HTML page will trigger this
-// callback. The callback will be passed the "pluginMessage" property of the
-// posted message.
-
+// Gets the index of the first page which includes the substring pageName
 const getPageIndex = (pageName: string) => {
   let implementPageIndex = 0;
   for (let i = 0; i < figma.root.children.length; i++) {
@@ -28,8 +17,11 @@ const getPageIndex = (pageName: string) => {
 
 figma.ui.onmessage = msg => {
   if (msg.type === "move-implement") {
+    // Get the index of the the "To Implement" page
     const pageIndex = getPageIndex("--- To Implement");
+    // Get the index the of the currently selected page
     const cur = figma.currentPage;
+    // move the current page after the one with pageIndex
     figma.root.insertChild(pageIndex + 1, cur);
     return;
   }
@@ -55,7 +47,5 @@ figma.ui.onmessage = msg => {
     return;
   }
 
-  // Make sure to close the plugin when you're done. Otherwise the plugin will
-  // keep running, which shows the cancel button at the bottom of the screen.
   figma.closePlugin();
 };
